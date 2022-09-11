@@ -8,10 +8,10 @@ import ProposalCard from "../components/ProposalCard";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/ReactToastify.min.css";
 
-const Home: NextPage = () => {
+const Home = () => {
   const [proposals, setProposals] = useState(null);
   const [proposalInput, setProposalInput] = useState("");
-  const { getAllProposals, isExecutable, address, createProposal } =
+  const { getAllProposals, isExecutable, currentUserAddress, createProposal } =
     useContext(ApeDaoContext);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const Home: NextPage = () => {
   }, []);
   return (
     <div className={styles.wrapper}>
-      {address ? (
+      {currentUserAddress ? (
         <>
           <Header />
 
